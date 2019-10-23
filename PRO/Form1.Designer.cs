@@ -32,23 +32,9 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.MocninyXOd0Po10 = new System.Windows.Forms.Button();
             this.Output = new System.Windows.Forms.TextBox();
             this.Clear = new System.Windows.Forms.Button();
-            this.Mocniny2PoX = new System.Windows.Forms.Button();
-            this.Stvorec = new System.Windows.Forms.Button();
-            this.Obdlznik = new System.Windows.Forms.Button();
-            this.Trojuholnik = new System.Windows.Forms.Button();
-            this.Kosostvorec = new System.Windows.Forms.Button();
             this.ShowOutput = new System.Windows.Forms.Button();
-            this.Kruh = new System.Windows.Forms.Button();
-            this.PresypacieHodiny = new System.Windows.Forms.Button();
-            this.Turtle = new System.Windows.Forms.Button();
-            this.MenoOdzadu = new System.Windows.Forms.Button();
-            this.Nahrad = new System.Windows.Forms.Button();
-            this.JePalindrom = new System.Windows.Forms.Button();
-            this.Vymazavac = new System.Windows.Forms.Button();
-            this.Vymysli = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // Input
@@ -85,16 +71,6 @@
             this.label3.TabIndex = 3;
             this.label3.Text = "Actions:";
             // 
-            // MocninyXOd0Po10
-            // 
-            this.MocninyXOd0Po10.Location = new System.Drawing.Point(64, 39);
-            this.MocninyXOd0Po10.Name = "MocninyXOd0Po10";
-            this.MocninyXOd0Po10.Size = new System.Drawing.Size(120, 23);
-            this.MocninyXOd0Po10.TabIndex = 4;
-            this.MocninyXOd0Po10.Text = "Mocniny X od 0 po 10";
-            this.MocninyXOd0Po10.UseVisualStyleBackColor = true;
-            this.MocninyXOd0Po10.Click += new System.EventHandler(this.MocninyXOd0Po10_Click);
-            // 
             // Output
             // 
             this.Output.Font = new System.Drawing.Font("Courier New", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -116,57 +92,6 @@
             this.Clear.UseVisualStyleBackColor = true;
             this.Clear.Click += new System.EventHandler(this.Clear_Click);
             // 
-            // Mocniny2PoX
-            // 
-            this.Mocniny2PoX.AccessibleDescription = "ň";
-            this.Mocniny2PoX.Location = new System.Drawing.Point(190, 39);
-            this.Mocniny2PoX.Name = "Mocniny2PoX";
-            this.Mocniny2PoX.Size = new System.Drawing.Size(89, 23);
-            this.Mocniny2PoX.TabIndex = 7;
-            this.Mocniny2PoX.Text = "Mocniny 2 po X";
-            this.Mocniny2PoX.UseVisualStyleBackColor = true;
-            this.Mocniny2PoX.Click += new System.EventHandler(this.Mocniny2PoX_Click);
-            // 
-            // Stvorec
-            // 
-            this.Stvorec.Location = new System.Drawing.Point(285, 39);
-            this.Stvorec.Name = "Stvorec";
-            this.Stvorec.Size = new System.Drawing.Size(53, 23);
-            this.Stvorec.TabIndex = 8;
-            this.Stvorec.Text = "Štvorec";
-            this.Stvorec.UseVisualStyleBackColor = true;
-            this.Stvorec.Click += new System.EventHandler(this.Stvorec_Click);
-            // 
-            // Obdlznik
-            // 
-            this.Obdlznik.Location = new System.Drawing.Point(344, 39);
-            this.Obdlznik.Name = "Obdlznik";
-            this.Obdlznik.Size = new System.Drawing.Size(57, 23);
-            this.Obdlznik.TabIndex = 9;
-            this.Obdlznik.Text = "Obdĺžnik";
-            this.Obdlznik.UseVisualStyleBackColor = true;
-            this.Obdlznik.Click += new System.EventHandler(this.Obdlznik_Click);
-            // 
-            // Trojuholnik
-            // 
-            this.Trojuholnik.Location = new System.Drawing.Point(407, 39);
-            this.Trojuholnik.Name = "Trojuholnik";
-            this.Trojuholnik.Size = new System.Drawing.Size(70, 23);
-            this.Trojuholnik.TabIndex = 10;
-            this.Trojuholnik.Text = "Trojuholník";
-            this.Trojuholnik.UseVisualStyleBackColor = true;
-            this.Trojuholnik.Click += new System.EventHandler(this.Trojuholnik_Click);
-            // 
-            // Kosostvorec
-            // 
-            this.Kosostvorec.Location = new System.Drawing.Point(483, 39);
-            this.Kosostvorec.Name = "Kosostvorec";
-            this.Kosostvorec.Size = new System.Drawing.Size(74, 23);
-            this.Kosostvorec.TabIndex = 11;
-            this.Kosostvorec.Text = "Kosoštvorec";
-            this.Kosostvorec.UseVisualStyleBackColor = true;
-            this.Kosostvorec.Click += new System.EventHandler(this.Kosostvorec_Click);
-            // 
             // ShowOutput
             // 
             this.ShowOutput.Location = new System.Drawing.Point(500, 10);
@@ -177,109 +102,15 @@
             this.ShowOutput.UseVisualStyleBackColor = true;
             this.ShowOutput.Click += new System.EventHandler(this.ShowOutput_Click);
             // 
-            // Kruh
-            // 
-            this.Kruh.Location = new System.Drawing.Point(673, 39);
-            this.Kruh.Name = "Kruh";
-            this.Kruh.Size = new System.Drawing.Size(39, 23);
-            this.Kruh.TabIndex = 13;
-            this.Kruh.Text = "Kruh";
-            this.Kruh.UseVisualStyleBackColor = true;
-            this.Kruh.Click += new System.EventHandler(this.Kruh_Click);
-            // 
-            // PresypacieHodiny
-            // 
-            this.PresypacieHodiny.Location = new System.Drawing.Point(563, 39);
-            this.PresypacieHodiny.Name = "PresypacieHodiny";
-            this.PresypacieHodiny.Size = new System.Drawing.Size(104, 23);
-            this.PresypacieHodiny.TabIndex = 14;
-            this.PresypacieHodiny.Text = "Presýpacie Hodiny";
-            this.PresypacieHodiny.UseVisualStyleBackColor = true;
-            this.PresypacieHodiny.Click += new System.EventHandler(this.PresypacieHodiny_Click);
-            // 
-            // Turtle
-            // 
-            this.Turtle.Location = new System.Drawing.Point(718, 39);
-            this.Turtle.Name = "Turtle";
-            this.Turtle.Size = new System.Drawing.Size(53, 23);
-            this.Turtle.TabIndex = 15;
-            this.Turtle.Text = "Turtle";
-            this.Turtle.UseVisualStyleBackColor = true;
-            this.Turtle.Click += new System.EventHandler(this.Turtle_Click);
-            // 
-            // MenoOdzadu
-            // 
-            this.MenoOdzadu.Location = new System.Drawing.Point(16, 68);
-            this.MenoOdzadu.Name = "MenoOdzadu";
-            this.MenoOdzadu.Size = new System.Drawing.Size(75, 23);
-            this.MenoOdzadu.TabIndex = 16;
-            this.MenoOdzadu.Text = "Meno Odzadu";
-            this.MenoOdzadu.UseVisualStyleBackColor = true;
-            this.MenoOdzadu.Click += new System.EventHandler(this.MenoOdzadu_Click);
-            // 
-            // Nahrad
-            // 
-            this.Nahrad.Location = new System.Drawing.Point(97, 68);
-            this.Nahrad.Name = "Nahrad";
-            this.Nahrad.Size = new System.Drawing.Size(75, 23);
-            this.Nahrad.TabIndex = 17;
-            this.Nahrad.Text = "Nahraď";
-            this.Nahrad.UseVisualStyleBackColor = true;
-            this.Nahrad.Click += new System.EventHandler(this.Nieco_Click);
-            // 
-            // JePalindrom
-            // 
-            this.JePalindrom.Location = new System.Drawing.Point(178, 68);
-            this.JePalindrom.Name = "JePalindrom";
-            this.JePalindrom.Size = new System.Drawing.Size(82, 23);
-            this.JePalindrom.TabIndex = 18;
-            this.JePalindrom.Text = "Je Palindróm?";
-            this.JePalindrom.UseVisualStyleBackColor = true;
-            this.JePalindrom.Click += new System.EventHandler(this.JePalindrom_Click);
-            // 
-            // Vymazavac
-            // 
-            this.Vymazavac.Location = new System.Drawing.Point(266, 68);
-            this.Vymazavac.Name = "Vymazavac";
-            this.Vymazavac.Size = new System.Drawing.Size(75, 23);
-            this.Vymazavac.TabIndex = 19;
-            this.Vymazavac.Text = "Vymazávač";
-            this.Vymazavac.UseVisualStyleBackColor = true;
-            this.Vymazavac.Click += new System.EventHandler(this.Vymazavac_Click);
-            // 
-            // Vymysli
-            // 
-            this.Vymysli.Location = new System.Drawing.Point(348, 68);
-            this.Vymysli.Name = "Vymysli";
-            this.Vymysli.Size = new System.Drawing.Size(53, 23);
-            this.Vymysli.TabIndex = 20;
-            this.Vymysli.Text = "Vymysli";
-            this.Vymysli.UseVisualStyleBackColor = true;
-            this.Vymysli.Click += new System.EventHandler(this.Vymysli_Click);
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.ClientSize = new System.Drawing.Size(784, 561);
-            this.Controls.Add(this.Vymysli);
-            this.Controls.Add(this.Vymazavac);
-            this.Controls.Add(this.JePalindrom);
-            this.Controls.Add(this.Nahrad);
-            this.Controls.Add(this.MenoOdzadu);
-            this.Controls.Add(this.Turtle);
-            this.Controls.Add(this.PresypacieHodiny);
-            this.Controls.Add(this.Kruh);
             this.Controls.Add(this.ShowOutput);
-            this.Controls.Add(this.Kosostvorec);
-            this.Controls.Add(this.Trojuholnik);
-            this.Controls.Add(this.Obdlznik);
-            this.Controls.Add(this.Stvorec);
-            this.Controls.Add(this.Mocniny2PoX);
             this.Controls.Add(this.Clear);
             this.Controls.Add(this.Output);
-            this.Controls.Add(this.MocninyXOd0Po10);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
@@ -299,23 +130,9 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Button MocninyXOd0Po10;
         private System.Windows.Forms.TextBox Output;
         private System.Windows.Forms.Button Clear;
-        private System.Windows.Forms.Button Mocniny2PoX;
-        private System.Windows.Forms.Button Stvorec;
-        private System.Windows.Forms.Button Obdlznik;
-        private System.Windows.Forms.Button Trojuholnik;
-        private System.Windows.Forms.Button Kosostvorec;
         private System.Windows.Forms.Button ShowOutput;
-        private System.Windows.Forms.Button Kruh;
-        private System.Windows.Forms.Button PresypacieHodiny;
-        private System.Windows.Forms.Button Turtle;
-        private System.Windows.Forms.Button MenoOdzadu;
-        private System.Windows.Forms.Button Nahrad;
-        private System.Windows.Forms.Button JePalindrom;
-        private System.Windows.Forms.Button Vymazavac;
-        private System.Windows.Forms.Button Vymysli;
     }
 }
 
