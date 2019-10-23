@@ -40,6 +40,7 @@
             this.StvorecSpiral = new System.Windows.Forms.Button();
             this.TrojuholnikSpiral = new System.Windows.Forms.Button();
             this.Reset = new System.Windows.Forms.Button();
+            this._Luce = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // Stvorec
@@ -159,11 +160,22 @@
             this.Reset.UseVisualStyleBackColor = true;
             this.Reset.Click += new System.EventHandler(this.Reset_Click);
             // 
+            // _Luce
+            // 
+            this._Luce.Location = new System.Drawing.Point(730, 68);
+            this._Luce.Name = "_Luce";
+            this._Luce.Size = new System.Drawing.Size(42, 23);
+            this._Luce.TabIndex = 12;
+            this._Luce.Text = "Lúče";
+            this._Luce.UseVisualStyleBackColor = true;
+            this._Luce.Click += new System.EventHandler(this._Luce_Click);
+            // 
             // FormTurtle
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(784, 561);
+            this.Controls.Add(this._Luce);
             this.Controls.Add(this.Reset);
             this.Controls.Add(this.TrojuholnikSpiral);
             this.Controls.Add(this.StvorecSpiral);
@@ -197,5 +209,6 @@
         private System.Windows.Forms.Button StvorecSpiral;
         private System.Windows.Forms.Button TrojuholnikSpiral;
         private System.Windows.Forms.Button Reset;
+        private System.Windows.Forms.Button _Luce;
     }
 }

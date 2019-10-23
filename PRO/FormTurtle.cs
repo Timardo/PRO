@@ -263,5 +263,33 @@ namespace PRO
         {
             Turtle.Reset();
         }
+
+        public static void luce(float dlzka = 150, int pocet = 20)
+        {
+            Turtle.ShowTurtle = false;
+            Turtle.PenSize = 1;
+            for (int i = 0; i < pocet; i++)
+            {
+                Turtle.Forward(dlzka);
+                Turtle.Forward(-dlzka);
+                Turtle.Rotate(360f/pocet);
+            }
+        }
+
+        private void _Luce_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                string[] split = Input.Text.Split(new string[] { "," }, StringSplitOptions.RemoveEmptyEntries);
+                float dlzka = float.Parse(split[0]);
+                int pocet = Convert.ToInt32(split[1]);
+                luce(dlzka, pocet);
+            }
+
+            catch
+            {
+                MessageBox.Show("Ďalej to už nepôjde, formát: dĺžka(float), počet(int)");
+            }
+        }
     }
 }

@@ -44,6 +44,11 @@
             this.Kruh = new System.Windows.Forms.Button();
             this.PresypacieHodiny = new System.Windows.Forms.Button();
             this.Turtle = new System.Windows.Forms.Button();
+            this.MenoOdzadu = new System.Windows.Forms.Button();
+            this.Nahrad = new System.Windows.Forms.Button();
+            this.JePalindrom = new System.Windows.Forms.Button();
+            this.Vymazavac = new System.Windows.Forms.Button();
+            this.Vymysli = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // Input
@@ -65,7 +70,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(13, 70);
+            this.label2.Location = new System.Drawing.Point(10, 94);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(42, 13);
             this.label2.TabIndex = 2;
@@ -93,11 +98,11 @@
             // Output
             // 
             this.Output.Font = new System.Drawing.Font("Courier New", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Output.Location = new System.Drawing.Point(13, 86);
+            this.Output.Location = new System.Drawing.Point(13, 110);
             this.Output.Multiline = true;
             this.Output.Name = "Output";
             this.Output.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.Output.Size = new System.Drawing.Size(758, 462);
+            this.Output.Size = new System.Drawing.Size(758, 438);
             this.Output.TabIndex = 5;
             this.Output.WordWrap = false;
             // 
@@ -202,12 +207,67 @@
             this.Turtle.UseVisualStyleBackColor = true;
             this.Turtle.Click += new System.EventHandler(this.Turtle_Click);
             // 
+            // MenoOdzadu
+            // 
+            this.MenoOdzadu.Location = new System.Drawing.Point(16, 68);
+            this.MenoOdzadu.Name = "MenoOdzadu";
+            this.MenoOdzadu.Size = new System.Drawing.Size(75, 23);
+            this.MenoOdzadu.TabIndex = 16;
+            this.MenoOdzadu.Text = "Meno Odzadu";
+            this.MenoOdzadu.UseVisualStyleBackColor = true;
+            this.MenoOdzadu.Click += new System.EventHandler(this.MenoOdzadu_Click);
+            // 
+            // Nahrad
+            // 
+            this.Nahrad.Location = new System.Drawing.Point(97, 68);
+            this.Nahrad.Name = "Nahrad";
+            this.Nahrad.Size = new System.Drawing.Size(75, 23);
+            this.Nahrad.TabIndex = 17;
+            this.Nahrad.Text = "Nahraď";
+            this.Nahrad.UseVisualStyleBackColor = true;
+            this.Nahrad.Click += new System.EventHandler(this.Nieco_Click);
+            // 
+            // JePalindrom
+            // 
+            this.JePalindrom.Location = new System.Drawing.Point(178, 68);
+            this.JePalindrom.Name = "JePalindrom";
+            this.JePalindrom.Size = new System.Drawing.Size(82, 23);
+            this.JePalindrom.TabIndex = 18;
+            this.JePalindrom.Text = "Je Palindróm?";
+            this.JePalindrom.UseVisualStyleBackColor = true;
+            this.JePalindrom.Click += new System.EventHandler(this.JePalindrom_Click);
+            // 
+            // Vymazavac
+            // 
+            this.Vymazavac.Location = new System.Drawing.Point(266, 68);
+            this.Vymazavac.Name = "Vymazavac";
+            this.Vymazavac.Size = new System.Drawing.Size(75, 23);
+            this.Vymazavac.TabIndex = 19;
+            this.Vymazavac.Text = "Vymazávač";
+            this.Vymazavac.UseVisualStyleBackColor = true;
+            this.Vymazavac.Click += new System.EventHandler(this.Vymazavac_Click);
+            // 
+            // Vymysli
+            // 
+            this.Vymysli.Location = new System.Drawing.Point(348, 68);
+            this.Vymysli.Name = "Vymysli";
+            this.Vymysli.Size = new System.Drawing.Size(53, 23);
+            this.Vymysli.TabIndex = 20;
+            this.Vymysli.Text = "Vymysli";
+            this.Vymysli.UseVisualStyleBackColor = true;
+            this.Vymysli.Click += new System.EventHandler(this.Vymysli_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.ClientSize = new System.Drawing.Size(784, 561);
+            this.Controls.Add(this.Vymysli);
+            this.Controls.Add(this.Vymazavac);
+            this.Controls.Add(this.JePalindrom);
+            this.Controls.Add(this.Nahrad);
+            this.Controls.Add(this.MenoOdzadu);
             this.Controls.Add(this.Turtle);
             this.Controls.Add(this.PresypacieHodiny);
             this.Controls.Add(this.Kruh);
@@ -251,6 +311,11 @@
         private System.Windows.Forms.Button Kruh;
         private System.Windows.Forms.Button PresypacieHodiny;
         private System.Windows.Forms.Button Turtle;
+        private System.Windows.Forms.Button MenoOdzadu;
+        private System.Windows.Forms.Button Nahrad;
+        private System.Windows.Forms.Button JePalindrom;
+        private System.Windows.Forms.Button Vymazavac;
+        private System.Windows.Forms.Button Vymysli;
     }
 }
 

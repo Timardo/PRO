@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace PRO
 {
@@ -97,6 +98,95 @@ namespace PRO
             }
 
             return output;
+        }
+
+        internal static bool JePalindrom(string input)
+        {
+            if (input.Equals(new string(input.Reverse().ToArray())))
+                return true;
+
+            return false;
+        }
+
+        internal static string Vymysli(string input)
+        {
+            string ret = "";
+
+            try
+            {
+                string[] split = input.Split(new string[] { ";" }, StringSplitOptions.RemoveEmptyEntries);
+                string slovo1 = split[0];
+                string slovo2 = split[1];
+                string vzor = split[2];
+
+                ret = vzor.Replace("a", slovo1).Replace("b", slovo2);
+            }
+
+            catch
+            {
+                ret += Environment.NewLine + "Ďalej to už nepôjde, formát: slovo1(string),slovo2(string),vzor(string[a=slovo1, b=slovo2])" + Environment.NewLine;
+            }
+
+            return ret;
+        }
+
+        internal static string Vymazavac(string input)
+        {
+            string ret = "";
+
+            try
+            {
+                string[] split = input.Split(new string[] { ";" }, StringSplitOptions.RemoveEmptyEntries);
+                string veta = split[0];
+                int pos = Convert.ToInt32(split[1]);
+                ret = veta.Substring(0, pos) + veta.Substring(pos + 1);
+            }
+
+            catch
+            {
+                ret += Environment.NewLine + "Ďalej to už nepôjde, formát: veta(string); pozícia(int)" + Environment.NewLine;
+            }
+
+            return ret;
+        }
+
+        internal static string Nahrad(string input)
+        {
+            string ret = "";
+
+            try
+            {
+                string[] split = input.Split(new string[] { ";" }, StringSplitOptions.RemoveEmptyEntries);
+                string veta = split[0];
+                string znak = split[1];
+                int pos = Convert.ToInt32(split[2]);
+                ret = veta.Substring(0, pos) + znak + veta.Substring(pos + 1);
+                ret += ": \u00B9";
+            }
+
+            catch
+            {
+                ret += Environment.NewLine + "Ďalej to už nepôjde, formát: veta(string); znak(string); pozícia(int)" + Environment.NewLine;
+            }
+
+            return ret;
+        }
+
+        internal static string GetMenoOdzadu(string input)
+        {
+            string ret = "";
+
+            try
+            {
+                ret += new string(input.Reverse().ToArray());
+            }
+
+            catch
+            {
+                ret += Environment.NewLine + "Ďalej to už nepôjde, formát: meno(text)" + Environment.NewLine;
+            }
+
+            return ret;
         }
 
         public static List<string> GetPresypacieHodiny(string input)

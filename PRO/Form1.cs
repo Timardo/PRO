@@ -78,5 +78,30 @@ namespace PRO
         {
             new FormTurtle().Show();
         }
+
+        private void MenoOdzadu_Click(object sender, EventArgs e)
+        {
+            Output.AppendText(Algorithms.GetMenoOdzadu(Input.Text) + Environment.NewLine);
+        }
+
+        private void Nieco_Click(object sender, EventArgs e)
+        {
+            Output.AppendText(Algorithms.Nahrad(Input.Text) + Environment.NewLine);
+        }
+
+        private void JePalindrom_Click(object sender, EventArgs e)
+        {
+            Output.AppendText(Algorithms.JePalindrom(Input.Text).ToString() + Environment.NewLine);
+        }
+
+        private void Vymazavac_Click(object sender, EventArgs e)
+        {
+            Output.AppendText(Algorithms.Vymazavac(Input.Text) + Environment.NewLine);
+        }
+
+        private void Vymysli_Click(object sender, EventArgs e)
+        {
+            Output.AppendText(Algorithms.Vymysli(Input.Text) + Environment.NewLine);
+        }
     }
 }
