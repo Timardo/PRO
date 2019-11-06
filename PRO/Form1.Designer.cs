@@ -35,6 +35,19 @@
             this.Output = new System.Windows.Forms.TextBox();
             this.Clear = new System.Windows.Forms.Button();
             this.ShowOutput = new System.Windows.Forms.Button();
+            this.Nahrad = new System.Windows.Forms.Button();
+            this.NahradPosledny = new System.Windows.Forms.Button();
+            this.AkoVeta = new System.Windows.Forms.Button();
+            this.ObratVetu = new System.Windows.Forms.Button();
+            this.Samohlasky = new System.Windows.Forms.Button();
+            this.SamostatneZnaky = new System.Windows.Forms.Button();
+            this.ZenitOne = new System.Windows.Forms.Button();
+            this.Soupa = new System.Windows.Forms.Button();
+            this.Zdvoj = new System.Windows.Forms.Button();
+            this.PrvePismena = new System.Windows.Forms.Button();
+            this.Menic = new System.Windows.Forms.Button();
+            this.Zhoda = new System.Windows.Forms.Button();
+            this.Otacac = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // Input
@@ -84,7 +97,7 @@
             // 
             // Clear
             // 
-            this.Clear.Location = new System.Drawing.Point(223, 11);
+            this.Clear.Location = new System.Drawing.Point(224, 11);
             this.Clear.Name = "Clear";
             this.Clear.Size = new System.Drawing.Size(271, 23);
             this.Clear.TabIndex = 6;
@@ -102,12 +115,155 @@
             this.ShowOutput.UseVisualStyleBackColor = true;
             this.ShowOutput.Click += new System.EventHandler(this.ShowOutput_Click);
             // 
+            // Nahrad
+            // 
+            this.Nahrad.Location = new System.Drawing.Point(64, 39);
+            this.Nahrad.Name = "Nahrad";
+            this.Nahrad.Size = new System.Drawing.Size(88, 23);
+            this.Nahrad.TabIndex = 13;
+            this.Nahrad.Text = "1. Nahraď prvý";
+            this.Nahrad.UseVisualStyleBackColor = true;
+            this.Nahrad.Click += new System.EventHandler(this.Nahrad_Click);
+            // 
+            // NahradPosledny
+            // 
+            this.NahradPosledny.Location = new System.Drawing.Point(158, 39);
+            this.NahradPosledny.Name = "NahradPosledny";
+            this.NahradPosledny.Size = new System.Drawing.Size(110, 23);
+            this.NahradPosledny.TabIndex = 14;
+            this.NahradPosledny.Text = "2. Nahraď posledný";
+            this.NahradPosledny.UseVisualStyleBackColor = true;
+            this.NahradPosledny.Click += new System.EventHandler(this.NahradPosledny_Click);
+            // 
+            // AkoVeta
+            // 
+            this.AkoVeta.Location = new System.Drawing.Point(274, 39);
+            this.AkoVeta.Name = "AkoVeta";
+            this.AkoVeta.Size = new System.Drawing.Size(73, 23);
+            this.AkoVeta.TabIndex = 15;
+            this.AkoVeta.Text = "3. Ako veta";
+            this.AkoVeta.UseVisualStyleBackColor = true;
+            this.AkoVeta.Click += new System.EventHandler(this.AkoVeta_Click);
+            // 
+            // ObratVetu
+            // 
+            this.ObratVetu.Location = new System.Drawing.Point(353, 39);
+            this.ObratVetu.Name = "ObratVetu";
+            this.ObratVetu.Size = new System.Drawing.Size(79, 23);
+            this.ObratVetu.TabIndex = 16;
+            this.ObratVetu.Text = "4. Obráť Vetu";
+            this.ObratVetu.UseVisualStyleBackColor = true;
+            this.ObratVetu.Click += new System.EventHandler(this.ObratVetu_Click);
+            // 
+            // Samohlasky
+            // 
+            this.Samohlasky.Location = new System.Drawing.Point(438, 39);
+            this.Samohlasky.Name = "Samohlasky";
+            this.Samohlasky.Size = new System.Drawing.Size(116, 23);
+            this.Samohlasky.TabIndex = 17;
+            this.Samohlasky.Text = "6. Počet Samohlások";
+            this.Samohlasky.UseVisualStyleBackColor = true;
+            this.Samohlasky.Click += new System.EventHandler(this.Samohlasky_Click);
+            // 
+            // SamostatneZnaky
+            // 
+            this.SamostatneZnaky.Location = new System.Drawing.Point(560, 39);
+            this.SamostatneZnaky.Name = "SamostatneZnaky";
+            this.SamostatneZnaky.Size = new System.Drawing.Size(116, 23);
+            this.SamostatneZnaky.TabIndex = 18;
+            this.SamostatneZnaky.Text = "7. Samostatné znaky";
+            this.SamostatneZnaky.UseVisualStyleBackColor = true;
+            this.SamostatneZnaky.Click += new System.EventHandler(this.SamostatneZnaky_Click);
+            // 
+            // ZenitOne
+            // 
+            this.ZenitOne.Location = new System.Drawing.Point(682, 39);
+            this.ZenitOne.Name = "ZenitOne";
+            this.ZenitOne.Size = new System.Drawing.Size(89, 23);
+            this.ZenitOne.TabIndex = 19;
+            this.ZenitOne.Text = "8. Zenit 18";
+            this.ZenitOne.UseVisualStyleBackColor = true;
+            this.ZenitOne.Click += new System.EventHandler(this.ZenitOne_Click);
+            // 
+            // Soupa
+            // 
+            this.Soupa.Location = new System.Drawing.Point(64, 68);
+            this.Soupa.Name = "Soupa";
+            this.Soupa.Size = new System.Drawing.Size(114, 23);
+            this.Soupa.TabIndex = 20;
+            this.Soupa.Text = "9. Gaučová Funkcia";
+            this.Soupa.UseVisualStyleBackColor = true;
+            this.Soupa.Click += new System.EventHandler(this.Soupa_Click);
+            // 
+            // Zdvoj
+            // 
+            this.Zdvoj.Location = new System.Drawing.Point(184, 68);
+            this.Zdvoj.Name = "Zdvoj";
+            this.Zdvoj.Size = new System.Drawing.Size(91, 23);
+            this.Zdvoj.TabIndex = 21;
+            this.Zdvoj.Text = "Zdvoj písmená";
+            this.Zdvoj.UseVisualStyleBackColor = true;
+            this.Zdvoj.Click += new System.EventHandler(this.Zdvoj_Click);
+            // 
+            // PrvePismena
+            // 
+            this.PrvePismena.Location = new System.Drawing.Point(281, 68);
+            this.PrvePismena.Name = "PrvePismena";
+            this.PrvePismena.Size = new System.Drawing.Size(82, 23);
+            this.PrvePismena.TabIndex = 22;
+            this.PrvePismena.Text = "Prvé Písmená";
+            this.PrvePismena.UseVisualStyleBackColor = true;
+            this.PrvePismena.Click += new System.EventHandler(this.PrvePismena_Click);
+            // 
+            // Menic
+            // 
+            this.Menic.Location = new System.Drawing.Point(369, 68);
+            this.Menic.Name = "Menic";
+            this.Menic.Size = new System.Drawing.Size(45, 23);
+            this.Menic.TabIndex = 23;
+            this.Menic.Text = "Menič";
+            this.Menic.UseVisualStyleBackColor = true;
+            this.Menic.Click += new System.EventHandler(this.Menic_Click);
+            // 
+            // Zhoda
+            // 
+            this.Zhoda.Location = new System.Drawing.Point(420, 68);
+            this.Zhoda.Name = "Zhoda";
+            this.Zhoda.Size = new System.Drawing.Size(46, 23);
+            this.Zhoda.TabIndex = 24;
+            this.Zhoda.Text = "Zhoda";
+            this.Zhoda.UseVisualStyleBackColor = true;
+            this.Zhoda.Click += new System.EventHandler(this.Zhoda_Click);
+            // 
+            // Otacac
+            // 
+            this.Otacac.Location = new System.Drawing.Point(472, 68);
+            this.Otacac.Name = "Otacac";
+            this.Otacac.Size = new System.Drawing.Size(50, 23);
+            this.Otacac.TabIndex = 25;
+            this.Otacac.Text = "Otáčač";
+            this.Otacac.UseVisualStyleBackColor = true;
+            this.Otacac.Click += new System.EventHandler(this.Otacac_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.ClientSize = new System.Drawing.Size(784, 561);
+            this.Controls.Add(this.Otacac);
+            this.Controls.Add(this.Zhoda);
+            this.Controls.Add(this.Menic);
+            this.Controls.Add(this.PrvePismena);
+            this.Controls.Add(this.Zdvoj);
+            this.Controls.Add(this.Soupa);
+            this.Controls.Add(this.ZenitOne);
+            this.Controls.Add(this.SamostatneZnaky);
+            this.Controls.Add(this.Samohlasky);
+            this.Controls.Add(this.ObratVetu);
+            this.Controls.Add(this.AkoVeta);
+            this.Controls.Add(this.NahradPosledny);
+            this.Controls.Add(this.Nahrad);
             this.Controls.Add(this.ShowOutput);
             this.Controls.Add(this.Clear);
             this.Controls.Add(this.Output);
@@ -133,6 +289,19 @@
         private System.Windows.Forms.TextBox Output;
         private System.Windows.Forms.Button Clear;
         private System.Windows.Forms.Button ShowOutput;
+        private System.Windows.Forms.Button Nahrad;
+        private System.Windows.Forms.Button NahradPosledny;
+        private System.Windows.Forms.Button AkoVeta;
+        private System.Windows.Forms.Button ObratVetu;
+        private System.Windows.Forms.Button Samohlasky;
+        private System.Windows.Forms.Button SamostatneZnaky;
+        private System.Windows.Forms.Button ZenitOne;
+        private System.Windows.Forms.Button Soupa;
+        private System.Windows.Forms.Button Zdvoj;
+        private System.Windows.Forms.Button PrvePismena;
+        private System.Windows.Forms.Button Menic;
+        private System.Windows.Forms.Button Zhoda;
+        private System.Windows.Forms.Button Otacac;
     }
 }
 
