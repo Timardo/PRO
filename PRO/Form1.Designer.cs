@@ -48,6 +48,10 @@
             this.Menic = new System.Windows.Forms.Button();
             this.Zhoda = new System.Windows.Forms.Button();
             this.Otacac = new System.Windows.Forms.Button();
+            this.Inicialy = new System.Windows.Forms.Button();
+            this.Anagramy = new System.Windows.Forms.Button();
+            this.yToZToY = new System.Windows.Forms.Button();
+            this.slovakize = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // Input
@@ -245,12 +249,56 @@
             this.Otacac.UseVisualStyleBackColor = true;
             this.Otacac.Click += new System.EventHandler(this.Otacac_Click);
             // 
+            // Inicialy
+            // 
+            this.Inicialy.Location = new System.Drawing.Point(528, 68);
+            this.Inicialy.Name = "Inicialy";
+            this.Inicialy.Size = new System.Drawing.Size(50, 23);
+            this.Inicialy.TabIndex = 26;
+            this.Inicialy.Text = "Iniciály";
+            this.Inicialy.UseVisualStyleBackColor = true;
+            this.Inicialy.Click += new System.EventHandler(this.Inicialy_Click);
+            // 
+            // Anagramy
+            // 
+            this.Anagramy.Location = new System.Drawing.Point(584, 68);
+            this.Anagramy.Name = "Anagramy";
+            this.Anagramy.Size = new System.Drawing.Size(64, 23);
+            this.Anagramy.TabIndex = 27;
+            this.Anagramy.Text = "Anagramy";
+            this.Anagramy.UseVisualStyleBackColor = true;
+            this.Anagramy.Click += new System.EventHandler(this.Anagramy_Click);
+            // 
+            // yToZToY
+            // 
+            this.yToZToY.Location = new System.Drawing.Point(654, 68);
+            this.yToZToY.Name = "yToZToY";
+            this.yToZToY.Size = new System.Drawing.Size(50, 23);
+            this.yToZToY.TabIndex = 28;
+            this.yToZToY.Text = "Y <-> Z";
+            this.yToZToY.UseVisualStyleBackColor = true;
+            this.yToZToY.Click += new System.EventHandler(this.yToZToY_Click);
+            // 
+            // slovakize
+            // 
+            this.slovakize.Location = new System.Drawing.Point(710, 68);
+            this.slovakize.Name = "slovakize";
+            this.slovakize.Size = new System.Drawing.Size(61, 23);
+            this.slovakize.TabIndex = 29;
+            this.slovakize.Text = "9 -> í..";
+            this.slovakize.UseVisualStyleBackColor = true;
+            this.slovakize.Click += new System.EventHandler(this.slovakize_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.ClientSize = new System.Drawing.Size(784, 561);
+            this.Controls.Add(this.slovakize);
+            this.Controls.Add(this.yToZToY);
+            this.Controls.Add(this.Anagramy);
+            this.Controls.Add(this.Inicialy);
             this.Controls.Add(this.Otacac);
             this.Controls.Add(this.Zhoda);
             this.Controls.Add(this.Menic);
@@ -302,6 +350,10 @@
         private System.Windows.Forms.Button Menic;
         private System.Windows.Forms.Button Zhoda;
         private System.Windows.Forms.Button Otacac;
+        private System.Windows.Forms.Button Inicialy;
+        private System.Windows.Forms.Button Anagramy;
+        private System.Windows.Forms.Button yToZToY;
+        private System.Windows.Forms.Button slovakize;
     }
 }
 

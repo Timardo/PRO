@@ -90,5 +90,25 @@ namespace PRO
         {
             Output.AppendText(Algorithms.Otacac(Input.Text) + Environment.NewLine);
         }
+
+        private void Inicialy_Click(object sender, EventArgs e)
+        {
+            Output.AppendText(Algorithms.Inicialy(Input.Text) + Environment.NewLine);
+        }
+
+        private void Anagramy_Click(object sender, EventArgs e)
+        {
+            Output.AppendText(Algorithms.Anagramy(Input.Text) + Environment.NewLine);
+        }
+
+        private void yToZToY_Click(object sender, EventArgs e)
+        {
+            Output.AppendText(Algorithms.yToZToY(Input.Text) + Environment.NewLine);
+        }
+
+        private void slovakize_Click(object sender, EventArgs e)
+        {
+            Output.AppendText(Algorithms.Slovakize(Input.Text) + Environment.NewLine);
+        }
     }
 }
