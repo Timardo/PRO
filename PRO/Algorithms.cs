@@ -88,27 +88,25 @@ namespace PRO
 
         internal static string Sito()
         {
-            return "nefungujem";
-            //var intList = IntList(2000);
-            //int removed = 0;
+            var intList = IntList(2000);
+            int counter = 0;
 
-            //for (int i = 0; i < 1000; i++)
-            //{
-            //    int remLoc = 0;
+            while (counter < intList.Count)
+            {
+                int localCounter = counter * 2;
 
-            //    for (int j = intList[i] * 2; j < intList.Count; j++)
-            //    {
-            //        if (intList[j - remLoc] % intList[i] == 0)
-            //        {
-            //            intList.RemoveAt(j - remLoc);
-            //            remLoc++;
-            //        }
-            //    }
+                while (localCounter < intList.Count)
+                {
+                    if (intList[localCounter] % intList[counter] == 0)
+                        intList.RemoveAt(localCounter);
 
-            //    removed += remLoc;
-            //}
+                    localCounter++;
+                }
 
-            //return string.Join(Environment.NewLine, intList);
+                counter++;
+            }
+
+            return "Prvočísla podľa Eratostenovho sita:" + Environment.NewLine + string.Join(Environment.NewLine, intList);
         }
 
         internal static string Spustitelne()
@@ -238,7 +236,7 @@ namespace PRO
         {
             List<int> ret = new List<int>();
 
-            for (int i = 2; i < count; i++)
+            for (int i = 1; i < count; i++)
                 ret.Add(i);
 
             return ret;
