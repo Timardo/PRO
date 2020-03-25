@@ -4,13 +4,21 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Net;
+using System.Net.Sockets;
 using System.Text;
+using System.Threading;
 using System.Windows.Forms;
 
 namespace PRO
 {
     public partial class Form1 : Form
     {
+        private delegate void SafeCallDelegate(string text);
+        public static volatile Connection connection = null;
+        public static TextBox outputRef = null;
+        public Thread connectionThread;
+
         public Form1()
         {
             InitializeComponent();
@@ -26,84 +34,92 @@ namespace PRO
             new FormOut(Output.Text).Show();
         }
 
-        private void Naplnit_Click(object sender, EventArgs e)
+        private void button1_Click(object sender, EventArgs e)
         {
-            Output.AppendText(string.Join(", ", Algorithms.Naplnit()) + Environment.NewLine);
+            Output.AppendText("Nefungujem" + Environment.NewLine);
+            return;
+
+            if (connection == null)
+            {
+                ThreadStart childref = new ThreadStart(startConnection);
+                connectionThread = new Thread(childref);
+                connectionThread.Start();
+                Output.AppendText("Vytváram spojenie.." + Environment.NewLine);
+            }
+
+            else
+            {
+                Connection.waitingForInput = false;
+                connection.sendMessage(Input.Text);
+            }
         }
 
-        private void Uloha1_Click(object sender, EventArgs e)
+        public void startConnection()
         {
-            Output.AppendText(Algorithms.Uloha1() + Environment.NewLine);
+            outputRef = Output;
+            connection = new Connection();
+            connection.waitForInput();
         }
 
-        private void Uloha2_Click(object sender, EventArgs e)
+        public static void outputText(string text)
         {
-            Output.AppendText(Algorithms.Uloha2() + Environment.NewLine);
+            if (outputRef.InvokeRequired)
+            {
+                var d = new SafeCallDelegate(outputText);
+                outputRef.Invoke(d, new object[] { text });
+            }
+
+            else
+            {
+                outputRef.AppendText(text);
+            }
         }
 
-        private void Uloha3_Click(object sender, EventArgs e)
+        private void Painting_Click(object sender, EventArgs e)
         {
-            Output.AppendText(Algorithms.Uloha3() + Environment.NewLine);
+            new FormPaint(false).Show();
         }
 
-        private void Uloha4_Click(object sender, EventArgs e)
+        private void Smajliky_Click(object sender, EventArgs e)
         {
-            Output.AppendText(Algorithms.Uloha4(Input.Text) + Environment.NewLine);
+            new FormPaint(true).Show();
+        }
+    }
+
+    public class Connection
+    {
+        TcpClient client;
+        NetworkStream stream;
+        public static volatile bool waitingForInput;
+
+        public Connection()
+        {
+            client = new TcpClient();
+            client.Connect("127.0.0.1", 25566);
+            stream = client.GetStream();
+            waitingForInput = true;
+            Form1.outputText("Spojenie vytvorené!");
+
         }
 
-        private void Uloha5_Click(object sender, EventArgs e)
+        public void sendMessage(string message)
         {
-            Output.AppendText(Algorithms.Uloha5() + Environment.NewLine);
+            byte[] bytes = Encoding.Unicode.GetBytes(message);
+            stream.Write(bytes, 0, bytes.Length);
+            stream.Flush();
+            waitingForInput = true;
+            waitForInput();
         }
 
-        private void Uloha6_Click(object sender, EventArgs e)
+        public void waitForInput()
         {
-            Output.AppendText(Algorithms.Uloha6(Input.Text) + Environment.NewLine);
-        }
-
-        private void Uloha7_Click(object sender, EventArgs e)
-        {
-            Output.AppendText(Algorithms.Uloha7() + Environment.NewLine);
-        }
-
-        private void Uloha8_Click(object sender, EventArgs e)
-        {
-            Output.AppendText(Algorithms.Uloha8() + Environment.NewLine);
-        }
-
-        private void Uloha9_Click(object sender, EventArgs e)
-        {
-            Output.AppendText(Algorithms.Uloha9() + Environment.NewLine);
-        }
-
-        private void Uloha10_Click(object sender, EventArgs e)
-        {
-            Output.AppendText(Algorithms.Uloha10(Input.Text) + Environment.NewLine);
-        }
-
-        private void Sito_Click(object sender, EventArgs e)
-        {
-            Output.AppendText(Algorithms.Sito() + Environment.NewLine);
-        }
-
-        private void Uloha12_Click(object sender, EventArgs e)
-        {
-            Output.AppendText(Algorithms.Uloha12() + Environment.NewLine);
-        }
-
-        private void DNA_Click(object sender, EventArgs e)
-        {
-            Output.AppendText(Algorithms.DNA(Input.Text) + Environment.NewLine);
-        }
-
-        private void Uloha14_Click(object sender, EventArgs e)
-        {
-            Output.AppendText(Algorithms.Uloha14() + Environment.NewLine);
-        }
-
-        private void Spustitelne_Click(object sender, EventArgs e)
-        {
-            Output.AppendText(Algorithms.Spustitelne() + Environment.NewLine);
+            while (waitingForInput)
+            {
+                byte[] responseData = new byte[client.ReceiveBufferSize];
+                stream.Read(responseData, 0, client.ReceiveBufferSize);
+                string responseText = Encoding.Unicode.GetString(responseData);
+                Form1.outputText(responseText + Environment.NewLine);
+            }
         }
     }
 }
