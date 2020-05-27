@@ -30,24 +30,14 @@ namespace PRO
         /// </summary>
         private void InitializeComponent()
         {
-            this.Input = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.Clear = new System.Windows.Forms.Button();
             this.ShowOutput = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
-            this.Painting = new System.Windows.Forms.Button();
             this.Output = new System.Windows.Forms.TextBox();
-            this.Smajliky = new System.Windows.Forms.Button();
+            this.Input = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
-            // 
-            // Input
-            // 
-            this.Input.Location = new System.Drawing.Point(53, 13);
-            this.Input.Name = "Input";
-            this.Input.Size = new System.Drawing.Size(164, 20);
-            this.Input.TabIndex = 0;
             // 
             // label1
             // 
@@ -96,26 +86,6 @@ namespace PRO
             this.label2.TabIndex = 2;
             this.label2.Text = "Output:";
             // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(65, 44);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 13;
-            this.button1.Text = "Poslať";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // Painting
-            // 
-            this.Painting.Location = new System.Drawing.Point(146, 44);
-            this.Painting.Name = "Painting";
-            this.Painting.Size = new System.Drawing.Size(82, 23);
-            this.Painting.TabIndex = 14;
-            this.Painting.Text = "Skicár v.-1";
-            this.Painting.UseVisualStyleBackColor = true;
-            this.Painting.Click += new System.EventHandler(this.Painting_Click);
-            // 
             // Output
             // 
             this.Output.Font = new System.Drawing.Font("Courier New", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -127,15 +97,13 @@ namespace PRO
             this.Output.TabIndex = 5;
             this.Output.WordWrap = false;
             // 
-            // Smajliky
+            // Input
             // 
-            this.Smajliky.Location = new System.Drawing.Point(234, 44);
-            this.Smajliky.Name = "Smajliky";
-            this.Smajliky.Size = new System.Drawing.Size(75, 23);
-            this.Smajliky.TabIndex = 15;
-            this.Smajliky.Text = "Smajlíky";
-            this.Smajliky.UseVisualStyleBackColor = true;
-            this.Smajliky.Click += new System.EventHandler(this.Smajliky_Click);
+            this.Input.Location = new System.Drawing.Point(53, 13);
+            this.Input.Multiline = true;
+            this.Input.Name = "Input";
+            this.Input.Size = new System.Drawing.Size(164, 20);
+            this.Input.TabIndex = 0;
             // 
             // Form1
             // 
@@ -143,9 +111,6 @@ namespace PRO
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.ClientSize = new System.Drawing.Size(784, 561);
-            this.Controls.Add(this.Smajliky);
-            this.Controls.Add(this.Painting);
-            this.Controls.Add(this.button1);
             this.Controls.Add(this.ShowOutput);
             this.Controls.Add(this.Clear);
             this.Controls.Add(this.Output);
@@ -163,17 +128,13 @@ namespace PRO
         }
 
         #endregion
-
-        private System.Windows.Forms.TextBox Input;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button Clear;
         private System.Windows.Forms.Button ShowOutput;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button Painting;
         private System.Windows.Forms.TextBox Output;
-        private System.Windows.Forms.Button Smajliky;
+        private System.Windows.Forms.TextBox Input;
     }
 }
 
