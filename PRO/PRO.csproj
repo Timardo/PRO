@@ -61,12 +61,6 @@
     <Compile Include="FormOut.Designer.cs">
       <DependentUpon>FormOut.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormPaint.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FormPaint.Designer.cs">
-      <DependentUpon>FormPaint.cs</DependentUpon>
-    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Form1.resx">
@@ -74,9 +68,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormOut.resx">
       <DependentUpon>FormOut.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FormPaint.resx">
-      <DependentUpon>FormPaint.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

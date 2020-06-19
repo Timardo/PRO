@@ -36,10 +36,10 @@ namespace PRO
             this.Clear = new System.Windows.Forms.Button();
             this.ShowOutput = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
-            this.Painting = new System.Windows.Forms.Button();
             this.Output = new System.Windows.Forms.TextBox();
-            this.Smajliky = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
+            this.button3 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // Input
@@ -96,26 +96,6 @@ namespace PRO
             this.label2.TabIndex = 2;
             this.label2.Text = "Output:";
             // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(65, 44);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 13;
-            this.button1.Text = "Poslať";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // Painting
-            // 
-            this.Painting.Location = new System.Drawing.Point(146, 44);
-            this.Painting.Name = "Painting";
-            this.Painting.Size = new System.Drawing.Size(82, 23);
-            this.Painting.TabIndex = 14;
-            this.Painting.Text = "Skicár v.-1";
-            this.Painting.UseVisualStyleBackColor = true;
-            this.Painting.Click += new System.EventHandler(this.Painting_Click);
-            // 
             // Output
             // 
             this.Output.Font = new System.Drawing.Font("Courier New", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -127,15 +107,35 @@ namespace PRO
             this.Output.TabIndex = 5;
             this.Output.WordWrap = false;
             // 
-            // Smajliky
+            // button1
             // 
-            this.Smajliky.Location = new System.Drawing.Point(234, 44);
-            this.Smajliky.Name = "Smajliky";
-            this.Smajliky.Size = new System.Drawing.Size(75, 23);
-            this.Smajliky.TabIndex = 15;
-            this.Smajliky.Text = "Smajlíky";
-            this.Smajliky.UseVisualStyleBackColor = true;
-            this.Smajliky.Click += new System.EventHandler(this.Smajliky_Click);
+            this.button1.Location = new System.Drawing.Point(64, 39);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(87, 23);
+            this.button1.TabIndex = 13;
+            this.button1.Text = "1. Zobraziť čas";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(157, 39);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(84, 23);
+            this.button2.TabIndex = 14;
+            this.button2.Text = "2. Časové info";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // button3
+            // 
+            this.button3.Location = new System.Drawing.Point(247, 39);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(104, 23);
+            this.button3.TabIndex = 15;
+            this.button3.Text = "3.  Rok a poč. dní";
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // Form1
             // 
@@ -143,8 +143,8 @@ namespace PRO
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.ClientSize = new System.Drawing.Size(784, 561);
-            this.Controls.Add(this.Smajliky);
-            this.Controls.Add(this.Painting);
+            this.Controls.Add(this.button3);
+            this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.ShowOutput);
             this.Controls.Add(this.Clear);
@@ -170,10 +170,10 @@ namespace PRO
         private System.Windows.Forms.Button Clear;
         private System.Windows.Forms.Button ShowOutput;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button Painting;
         private System.Windows.Forms.TextBox Output;
-        private System.Windows.Forms.Button Smajliky;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button button3;
     }
 }
 

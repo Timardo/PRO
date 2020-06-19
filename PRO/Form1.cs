@@ -14,11 +14,6 @@ namespace PRO
 {
     public partial class Form1 : Form
     {
-        private delegate void SafeCallDelegate(string text);
-        public static volatile Connection connection = null;
-        public static TextBox outputRef = null;
-        public Thread connectionThread;
-
         public Form1()
         {
             InitializeComponent();
@@ -36,90 +31,17 @@ namespace PRO
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Output.AppendText("Nefungujem" + Environment.NewLine);
-            return;
-
-            if (connection == null)
-            {
-                ThreadStart childref = new ThreadStart(startConnection);
-                connectionThread = new Thread(childref);
-                connectionThread.Start();
-                Output.AppendText("Vytváram spojenie.." + Environment.NewLine);
-            }
-
-            else
-            {
-                Connection.waitingForInput = false;
-                connection.sendMessage(Input.Text);
-            }
+            Output.AppendText(Algorithms.ZobrazitCas());
         }
 
-        public void startConnection()
+        private void button2_Click(object sender, EventArgs e)
         {
-            outputRef = Output;
-            connection = new Connection();
-            connection.waitForInput();
+            Output.AppendText(Algorithms.CasoveInfo(Input.Text));
         }
 
-        public static void outputText(string text)
+        private void button3_Click(object sender, EventArgs e)
         {
-            if (outputRef.InvokeRequired)
-            {
-                var d = new SafeCallDelegate(outputText);
-                outputRef.Invoke(d, new object[] { text });
-            }
-
-            else
-            {
-                outputRef.AppendText(text);
-            }
-        }
-
-        private void Painting_Click(object sender, EventArgs e)
-        {
-            new FormPaint(false).Show();
-        }
-
-        private void Smajliky_Click(object sender, EventArgs e)
-        {
-            new FormPaint(true).Show();
-        }
-    }
-
-    public class Connection
-    {
-        TcpClient client;
-        NetworkStream stream;
-        public static volatile bool waitingForInput;
-
-        public Connection()
-        {
-            client = new TcpClient();
-            client.Connect("127.0.0.1", 25566);
-            stream = client.GetStream();
-            waitingForInput = true;
-            Form1.outputText("Spojenie vytvorené!");
-
-        }
-
-        public void sendMessage(string message)
-        {
-            byte[] bytes = Encoding.Unicode.GetBytes(message);
-            stream.Write(bytes, 0, bytes.Length);
-            stream.Flush();
-            waitingForInput = true;
-            waitForInput();
-        }
-
-        public void waitForInput()
-        {
-            while (waitingForInput)
-            {
-                byte[] responseData = new byte[client.ReceiveBufferSize];
-                stream.Read(responseData, 0, client.ReceiveBufferSize);
-                string responseText = Encoding.Unicode.GetString(responseData);
-                Form1.outputText(responseText + Environment.NewLine);
-            }
+            Output.AppendText(Algorithms.RokAPocDni(Input.Text));
         }
     }
 }
