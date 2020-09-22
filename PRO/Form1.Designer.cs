@@ -111,29 +111,29 @@ namespace PRO
             // 
             this.button1.Location = new System.Drawing.Point(64, 39);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(87, 23);
+            this.button1.Size = new System.Drawing.Size(97, 23);
             this.button1.TabIndex = 13;
-            this.button1.Text = "1. Zobraziť čas";
+            this.button1.Text = "1. Víkendové dni";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(157, 39);
+            this.button2.Location = new System.Drawing.Point(167, 39);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(84, 23);
+            this.button2.Size = new System.Drawing.Size(75, 23);
             this.button2.TabIndex = 14;
-            this.button2.Text = "2. Časové info";
+            this.button2.Text = "2. Unix Y2K";
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(247, 39);
+            this.button3.Location = new System.Drawing.Point(248, 39);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(104, 23);
+            this.button3.Size = new System.Drawing.Size(75, 23);
             this.button3.TabIndex = 15;
-            this.button3.Text = "3.  Rok a poč. dní";
+            this.button3.Text = "3. Piatky 13.";
             this.button3.UseVisualStyleBackColor = true;
             this.button3.Click += new System.EventHandler(this.button3_Click);
             // 

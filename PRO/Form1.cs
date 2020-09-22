@@ -31,17 +31,17 @@ namespace PRO
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Output.AppendText(Algorithms.ZobrazitCas());
+            Output.AppendText(Algorithms.OdVikendaDoVikenda(Input.Text) + Environment.NewLine);
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-            Output.AppendText(Algorithms.CasoveInfo(Input.Text));
+            Output.AppendText(Algorithms.UnixY2k38() + Environment.NewLine);
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
-            Output.AppendText(Algorithms.RokAPocDni(Input.Text));
+            Output.AppendText(Algorithms.Piatky13(Input.Text) + Environment.NewLine);
         }
     }
 }

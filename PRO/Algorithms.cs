@@ -5,75 +5,98 @@ namespace PRO
 {
     class Algorithms
     {
-        internal static string ZobrazitCas()
-        {
-            DateTime current = DateTime.Now;
-            string format = "dd.MM.yyyy";
-            DateTime startJar = DateTime.ParseExact("22.02.2020", format, CultureInfo.InvariantCulture);
-            DateTime startLet = DateTime.ParseExact("01.07.2020", format, CultureInfo.InvariantCulture);
-            DateTime startJes = DateTime.ParseExact("29.10.2020", format, CultureInfo.InvariantCulture);
-            TimeSpan gapJar = current.Subtract(startJar);
-            TimeSpan gapLet = current.Subtract(startLet);
-            TimeSpan gapJes = current.Subtract(startJes);
-            bool predJar = gapJar.TotalDays < 0;
-            bool predLet = gapLet.TotalDays < 0;
-            bool predJes = gapJes.TotalDays < 0;
-            string ret = (predJar ? "Do" : "Od") + " jarných prázdnin " + (predJar ? "zostáva " + gapJar.Negate().Days : "ubehlo " + gapJar.Days) + (Math.Abs(gapJar.Days) == 1 ? " deň " : Math.Abs(gapJar.Days) > 1 && Math.Abs(gapJar.Days) < 5 ? " dni " :" dní " ) + gapJar.ToString().Substring(gapJar.ToString().IndexOf('.') + 1, gapJar.ToString().LastIndexOf('.') - gapJar.ToString().IndexOf('.') - 1) + Environment.NewLine;
-            ret += (predLet ? "Do" : "Od") + " letných prázdnin " + (predLet ? "zostáva " + gapLet.Negate().Days : "ubehlo " + gapLet.Days) + (Math.Abs(gapLet.Days) == 1 ? " deň " : Math.Abs(gapLet.Days) > 1 && Math.Abs(gapLet.Days) < 5 ? " dni " : " dní ") + gapLet.ToString().Substring(gapLet.ToString().IndexOf('.') + 1, gapLet.ToString().LastIndexOf('.') - gapLet.ToString().IndexOf('.') - 1) + Environment.NewLine;
-            ret += (predJes ? "Do" : "Od") + " jesenných prázdnin " + (predJes ? "zostáva " + gapJes.Negate().Days : "ubehlo " + gapJes.Days) + (Math.Abs(gapJes.Days) == 1 ? " deň " : Math.Abs(gapJes.Days) > 1 && Math.Abs(gapJes.Days) < 5 ? " dni " : " dní ") + gapJes.ToString().Substring(gapJes.ToString().IndexOf('.') + 1, gapJes.ToString().LastIndexOf('.') - gapJes.ToString().IndexOf('.') - 1) + Environment.NewLine;
-            return ret;
-        }
-
-        internal static string RokAPocDni(string text)
+        internal static string OdVikendaDoVikenda(string input)
         {
             try
             {
-                string[] split = text.Split(' ');
-                int rok = int.Parse(split[0]);
-                int pocDni = int.Parse(split[1]) - 1;
-                DateTime yr = new DateTime(rok, 1, 1);
+                int year = int.Parse(input);
+                int pocet = 0;
+                DateTime dt = new DateTime(year, 1, 1);
+                string output = "";
 
-                if ((pocDni > 365 && (rok / 4 != 0)) || pocDni > 366 || pocDni < 1)
-                    return "Počet zadaných dní nie je v poriadku" + Environment.NewLine;
+                for (; ; )
+                {
+                    if (dt.DayOfWeek == DayOfWeek.Saturday)
+                    {
+                        output += "Sobota: " + dt.Day + "." + dt.Month + Environment.NewLine;
+                        dt = dt.AddDays(1);
+                        pocet++;
+                        if (dt.Year != int.Parse(input)) break;
+                    }
 
-                DateTime vys = yr.AddDays(pocDni);
-                return "Dátum zo zadaných informácií: " + vys.ToString("dd.MM.yyyy", CultureInfo.CurrentCulture) + Environment.NewLine;
+                    if (dt.DayOfWeek == DayOfWeek.Sunday)
+                    {
+                        output += "Nedeľa: " + dt.Day + "." + dt.Month + Environment.NewLine;
+                        dt = dt.AddDays(5);
+                        pocet++;
+                        if (dt.Year != int.Parse(input)) break;
+                    }
+
+                    dt = dt.AddDays(1);
+                }
+
+                return output + "Počet víkendových dní: " + pocet;
             }
 
             catch
             {
-                return "Ďalej to už nepôjde, správny formát: rok(int) počet_dní(int)" + Environment.NewLine;
+                return "Ďalej to už nepôjde, správny formát: rok(int+)";
             }
         }
 
-        internal static string CasoveInfo(string input)
+        internal static string Piatky13(string text)
         {
             try
             {
-                DateTime current = DateTime.Now;
-                DateTime inDate = DateTime.ParseExact(input, "yyyy-MM-dd", CultureInfo.InvariantCulture);
-                TimeSpan span = current.Subtract(inDate);
-                bool pred = span.TotalDays < 0;
-                int i = (int)inDate.DayOfWeek;
-                string ret = "";
+                int rok = int.Parse(text);
+                DateTime dt = new DateTime(rok, 1, 13);
+                string output = "Na piatok 13. v roku " + text + " sa možno tešiť v tieto mesiace: ";
+                
+                for (int i = 1; i < 12; i++)
+                {
+                    if (dt.DayOfWeek == DayOfWeek.Friday)
+                    {
+                        output += dt.Month + ". ";
+                    }
 
-                if (span.Days == 0)
-                    ret += "Zadaný dátum je dnešný, ubehlo toľko, koľko je na hodinách";
-                else
-                    ret += (pred ? "Do" : "Od") + " zadaného dátumu " + (pred ? "zostáva " + span.Negate().Days : "ubehlo " + span.Days) + (Math.Abs(span.Days) == 1 ? " deň " : Math.Abs(span.Days) > 1 && Math.Abs(span.Days) < 5 ? " dni " : " dní ") + span.ToString().Substring(span.ToString().IndexOf('.') + 1, span.ToString().LastIndexOf('.') - span.ToString().IndexOf('.') - 1) + Environment.NewLine;
+                    dt = dt.AddMonths(1);
+                }
 
-                ret += "V deň zadaného dátumu je " + (i + 1) + ". deň v týždni, čo je " + (i == 1 ? "pondelok." : (i == 2 ? "utorok." : (i == 3 ? "streda." : (i == 4 ? "štvrtok." : (i == 5 ? "piatok." : (i == 6 ? "sobota." : "nedeľa.")))))) + Environment.NewLine;
-                DateTime yr = new DateTime(inDate.Year, 1, 1);
-                TimeSpan denOfYr = inDate.Subtract(yr);
-                int k = /*inDate.DayOfYear*/ (int)Math.Truncate(denOfYr.TotalDays) + 1;
-                ret += "V deň zadaného dátumu" + (k == 1 ? " uplynul 1 deň" : k > 1 && k < 5 ? " uplynuli " + i + " dni" : " uplunulo " + k + " dní") + " od začiatku roka.";
-                return ret + Environment.NewLine;
+                dt = DateTime.Now;
+                string dalsi = "Bohužiaľ najbližší piatok 13. bude ";
+                for (; ; )
+                {
+                    if (dt.Day != 13)
+                    {
+                        dt = dt.AddDays(1);
+                        continue;
+                    }
+
+                    if (dt.DayOfWeek == DayOfWeek.Friday)
+                    {
+                        dalsi += dt.ToLocalTime().ToShortDateString();
+                        break;
+                    }
+
+                    else dt = dt.AddMonths(1);
+                }
+
+                if (output.EndsWith(": ")) return "Žiadne piatky 13. v roku " + text + "! " + dalsi;
+                else return output + dalsi;
             }
 
             catch
             {
-                return "Ďalej to už nepôjde, správny formát: yyyy-MM-dd" + Environment.NewLine;
+                return "Ďalej to už nepôjde, správny formát: rok(int+)";
             }
+        }
+
+        internal static string UnixY2k38()
+        {
+            DateTime dt = new DateTime(1970, 1, 1);
+            dt = dt.AddSeconds(2147483647);
+
+            return "Hrôzostrašný moment nastane " + dt.ToLocalTime().ToString();
         }
     }
 }
