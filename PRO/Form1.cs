@@ -31,32 +31,7 @@ namespace PRO
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Output.AppendText(Algorithms.Cvic1() + Environment.NewLine);
-        }
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-            Output.AppendText(Algorithms.Cvic2() + Environment.NewLine);
-        }
-
-        private void button3_Click(object sender, EventArgs e)
-        {
-            Output.AppendText(Algorithms.Cvic3() + Environment.NewLine);
-        }
-
-        private void button4_Click(object sender, EventArgs e)
-        {
-            Output.AppendText(Algorithms.Cvic4() + Environment.NewLine);
-        }
-
-        private void button5_Click(object sender, EventArgs e)
-        {
-            Output.AppendText(Algorithms.Cvic5() + Environment.NewLine);
-        }
-
-        private void button6_Click(object sender, EventArgs e)
-        {
-            Output.AppendText(Algorithms.Cvic6(Input.Text) + Environment.NewLine);
+            Output.AppendText(Algorithms.Rekurzia(Input.Text) + Environment.NewLine);
         }
     }
 }
