@@ -31,7 +31,7 @@ namespace PRO
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Output.AppendText(Algorithms.Pivot() + Environment.NewLine);
+            Output.AppendText(Algorithms.Podpostupnost() + Environment.NewLine);
         }
     }
 }

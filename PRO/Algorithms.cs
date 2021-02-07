@@ -10,61 +10,86 @@ namespace PRO
 {
     class Algorithms
     {
-        internal static string Pivot()
+        internal static string Podpostupnost()
         {
             try
             {
-                string[] nms = File.ReadAllText(Application.StartupPath + "/pivot.txt").Split(',');
+                string[] nms = File.ReadAllText(Application.StartupPath + "/task1.txt").Split(',');
                 List<int> cisla = new List<int>();
+                int maxNeg = int.MinValue;
 
                 for (int n = 0; n < nms.Length; n++)
-                    cisla.Add(int.Parse(nms[n]));
-
-                int pivot = cisla.Last();
-                int i = 0;
-                int j = cisla.Count - 2;
-                bool fw = true;
-
-                while (true)
                 {
-                    if (i >= j)
+                    int k = int.Parse(nms[n]);
+                    // odignorujem záporné čísla už na začiatku pre ušetrenie výpočtov
+                    if (k <= 0)
                     {
-                        cisla.Insert(i, pivot);
-                        cisla.RemoveAt(cisla.Count - 1);
-                        break;
-                    }
-
-                    if (fw)
-                    {
-                        if (cisla[i] > pivot)
-                            fw = false;
+                        if (cisla.Count > 0)
+                            ;
                         else
-                            i++;
+                            maxNeg = Math.Max(maxNeg, k);
+
+                        continue;
                     }
 
-                    else
+                    cisla.Add(k);
+
+                }
+                // v prípade, že sa budú nachádzať v zozname len záporné čísla, bude výsledkom najväčšie záporné číslo
+                if (cisla.Count == 0)
+                    return "Zoznam obsahujuje len záporné čísla, preto je výsledkom najvyššia záporná hodnota: " + maxNeg;
+
+                int[] hodnoty = new int[cisla.Count];
+                List<List<int>> postupnost = new List<List<int>>();
+                hodnoty[0] = cisla[0];
+                postupnost.Add(new List<int>() { cisla[0] });
+                int maxIndex = 0;
+
+                for (int i = 1; i < cisla.Count; i++)
+                {
+                    int maxlocal = 0;
+
+                    for (int j = i - 1; j >= 0; j--)
                     {
-                        if (cisla[j] < pivot)
+                        if (cisla[i] >= cisla[j])
                         {
-                            int k = cisla[j];
-                            cisla[j] = cisla[i];
-                            cisla[i] = k;
-                            fw = true;
-                            i++;
-                            j--;
+                            if (hodnoty[j] > maxlocal)
+                            {
+                                hodnoty[i] = hodnoty[j] + cisla[i];
+
+                                if (maxlocal == 0)
+                                {
+                                    postupnost.Add(new List<int>(postupnost[j]));
+                                    postupnost[i].Add(cisla[i]);
+                                }
+
+                                else
+                                {
+                                    postupnost[i] = new List<int>(postupnost[j]);
+                                    postupnost[i].Add(cisla[i]);
+                                }
+
+                                maxlocal = hodnoty[j];
+                            }
                         }
 
-                        else
-                            j--;
+                        if (hodnoty[i] > hodnoty[maxIndex])
+                            maxIndex = i;
+                    }
+
+                    if (postupnost.Count == i)
+                    {
+                        hodnoty[i] = cisla[i];
+                        postupnost.Add(new List<int>() { cisla[i] });
                     }
                 }
 
-                return "Pivot: " + pivot + Environment.NewLine + "[" + string.Join(", ", cisla) + "]";
+                return "Najväčšia postupnosť čísel je: [" + string.Join(", ", postupnost[maxIndex]) + "]" + Environment.NewLine + "Hodnota: " + hodnoty[maxIndex];
             }
 
             catch
             {
-                return "Ďalej to už nepôjde, buď je zlý formát súboru alebo nie je možné nájsť súbor \"pivot.txt\" v priečinku s týmto programom.";
+                return "Ďalej to už nepôjde, buď je zlý formát súboru alebo nie je možné nájsť súbor \"task1.txt\" v priečinku s týmto programom.";
             }
         }
     }
