@@ -10,87 +10,84 @@ namespace PRO
 {
     class Algorithms
     {
-        internal static string Podpostupnost()
+        internal static string HeapSort()
         {
             try
             {
-                string[] nms = File.ReadAllText(Application.StartupPath + "/task1.txt").Split(',');
-                List<int> cisla = new List<int>();
-                int maxNeg = int.MinValue;
+                List<int> heap = new List<int>();
+                List<int> list = new List<int>();
 
-                for (int n = 0; n < nms.Length; n++)
+                foreach (string numero in File.ReadAllText(Application.StartupPath + "/cisla.txt").Split(','))
                 {
-                    int k = int.Parse(nms[n]);
-                    // odignorujem záporné čísla už na začiatku pre ušetrenie výpočtov
-                    if (k <= 0)
-                    {
-                        if (cisla.Count > 0)
-                            ;
-                        else
-                            maxNeg = Math.Max(maxNeg, k);
-
-                        continue;
-                    }
-
-                    cisla.Add(k);
-
+                    int numeroParsaro = int.Parse(numero);
+                    list.Add(numeroParsaro);
                 }
-                // v prípade, že sa budú nachádzať v zozname len záporné čísla, bude výsledkom najväčšie záporné číslo
-                if (cisla.Count == 0)
-                    return "Zoznam obsahujuje len záporné čísla, preto je výsledkom najvyššia záporná hodnota: " + maxNeg;
 
-                int[] hodnoty = new int[cisla.Count];
-                List<List<int>> postupnost = new List<List<int>>();
-                hodnoty[0] = cisla[0];
-                postupnost.Add(new List<int>() { cisla[0] });
-                int maxIndex = 0;
+                string ret = "Originálna postupnosť: " + Environment.NewLine + "[" + string.Join(", ", list) + "]" + Environment.NewLine + Environment.NewLine;
+                int lastIndex = 0;
 
-                for (int i = 1; i < cisla.Count; i++)
+                foreach (int numero in list)
                 {
-                    int maxlocal = 0;
+                    heap.Add(numero);
 
-                    for (int j = i - 1; j >= 0; j--)
+                    int tempIndex = lastIndex++;
+
+                    while (tempIndex != 0 && numero > heap[(tempIndex - 1) / 2])
                     {
-                        if (cisla[i] >= cisla[j])
-                        {
-                            if (hodnoty[j] > maxlocal)
-                            {
-                                hodnoty[i] = hodnoty[j] + cisla[i];
-
-                                if (maxlocal == 0)
-                                {
-                                    postupnost.Add(new List<int>(postupnost[j]));
-                                    postupnost[i].Add(cisla[i]);
-                                }
-
-                                else
-                                {
-                                    postupnost[i] = new List<int>(postupnost[j]);
-                                    postupnost[i].Add(cisla[i]);
-                                }
-
-                                maxlocal = hodnoty[j];
-                            }
-                        }
-
-                        if (hodnoty[i] > hodnoty[maxIndex])
-                            maxIndex = i;
-                    }
-
-                    if (postupnost.Count == i)
-                    {
-                        hodnoty[i] = cisla[i];
-                        postupnost.Add(new List<int>() { cisla[i] });
+                        heap[tempIndex] = heap[(tempIndex - 1) / 2];
+                        tempIndex = (tempIndex - 1) / 2;
+                        heap[tempIndex] = numero;
                     }
                 }
 
-                return "Najväčšia postupnosť čísel je: [" + string.Join(", ", postupnost[maxIndex]) + "]" + Environment.NewLine + "Hodnota: " + hodnoty[maxIndex];
+                ret += "Heap strom: " + Environment.NewLine + "[" + string.Join(", ", heap) + "]" + Environment.NewLine + Environment.NewLine;
+                List<int> post = new List<int>();
+                post.Add(RemoveRoot(heap));
+                ret += "Vybraný koreň: " + post[0] + Environment.NewLine + "Postupnosť po odobratí koreňa: " + Environment.NewLine + "[" + string.Join(", ", heap) + "]" + Environment.NewLine + Environment.NewLine;
+
+
+
+                while (heap.Count > 0)
+                {
+                    post.Add(RemoveRoot(heap));
+                }
+
+                return ret + "Zoradená postupnosť: " + Environment.NewLine + "[" + string.Join(", ", post) + "]";
             }
 
             catch
             {
-                return "Ďalej to už nepôjde, buď je zlý formát súboru alebo nie je možné nájsť súbor \"task1.txt\" v priečinku s týmto programom.";
+                return "Ďalej to už nepôjde, buď je nesprávny formát súboru alebo súbor 'cisla.txt' v priečinku s týmto programom";
             }
+        }
+
+        private static int RemoveRoot(List<int> heap)
+        {
+            int ret = heap[0];
+            int last = 0;
+            heap[0] = heap[heap.Count - 1];
+            heap.RemoveAt(heap.Count - 1);
+
+            while (true)
+            {
+                if (last * 2 + 1 > heap.Count - 1) break;
+
+                int max = 0;
+
+                if (last * 2 + 1 == heap.Count - 1)
+                    max = 1;
+                else
+                    max = Math.Max(heap[last * 2 + 1], heap[last * 2 + 2]) == heap[last * 2 + 1] ? 1 : 2;
+
+                if (!(heap[last] < heap[last * 2 + max])) break;
+
+                int n = heap[last * 2 + max];
+                heap[last * 2 + max] = heap[last];
+                heap[last] = n;
+                last = last * 2 + max;
+            }
+
+            return ret;
         }
     }
 }
