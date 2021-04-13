@@ -10,84 +10,32 @@ namespace PRO
 {
     class Algorithms
     {
-        internal static string HeapSort()
+        internal static string MontyHall(string input)
         {
             try
             {
-                List<int> heap = new List<int>();
-                List<int> list = new List<int>();
-
-                foreach (string numero in File.ReadAllText(Application.StartupPath + "/cisla.txt").Split(','))
+                bool[] dvere = new bool[3] { true, false, false }; // hádam nebude vadiť že každý test bude na rovnakom modeli, štatisticky by to malo byť ok a ušetrí to čas
+                Random r = new Random();
+                int iterations = int.Parse(input);
+                int won1 = 0;
+                int won2 = 0;
+                // bez zmeny rozhodnutia
+                for (int i = 0; i < iterations; i++)
                 {
-                    int numeroParsaro = int.Parse(numero);
-                    list.Add(numeroParsaro);
+                    if (dvere[r.Next(0, 3)])
+                        won1++; // prípad kedy si vyberie 1. dvere a nechá si ich
+                    else // v druhom prípade odtránime kozu a zostane originálna možnosť a koza, čiže ak zmeníme rozhodnutie (a nevyhrali sme predtým), vyhráme
+                        won2++;
                 }
 
-                string ret = "Originálna postupnosť: " + Environment.NewLine + "[" + string.Join(", ", list) + "]" + Environment.NewLine + Environment.NewLine;
-                int lastIndex = 0;
-
-                foreach (int numero in list)
-                {
-                    heap.Add(numero);
-
-                    int tempIndex = lastIndex++;
-
-                    while (tempIndex != 0 && numero > heap[(tempIndex - 1) / 2])
-                    {
-                        heap[tempIndex] = heap[(tempIndex - 1) / 2];
-                        tempIndex = (tempIndex - 1) / 2;
-                        heap[tempIndex] = numero;
-                    }
-                }
-
-                ret += "Heap strom: " + Environment.NewLine + "[" + string.Join(", ", heap) + "]" + Environment.NewLine + Environment.NewLine;
-                List<int> post = new List<int>();
-                post.Add(RemoveRoot(heap));
-                ret += "Vybraný koreň: " + post[0] + Environment.NewLine + "Postupnosť po odobratí koreňa: " + Environment.NewLine + "[" + string.Join(", ", heap) + "]" + Environment.NewLine + Environment.NewLine;
-
-
-
-                while (heap.Count > 0)
-                {
-                    post.Add(RemoveRoot(heap));
-                }
-
-                return ret + "Zoradená postupnosť: " + Environment.NewLine + "[" + string.Join(", ", post) + "]";
+                return "Po " + iterations + " iteráciách program dospel k záveru, že v " + (float) won1 / (float) iterations * 100 + "% prípadov hráč vyhral ak dvere nezmenil a v " + (float) won2 / (float) iterations * 100 + "% ak dvere zmenil";
             }
 
             catch
             {
-                return "Ďalej to už nepôjde, buď je nesprávny formát súboru alebo súbor 'cisla.txt' v priečinku s týmto programom";
+                return "Ďalej to už nepôjde, správny formát vstupu: max_iterations[int+]";
             }
-        }
-
-        private static int RemoveRoot(List<int> heap)
-        {
-            int ret = heap[0];
-            int last = 0;
-            heap[0] = heap[heap.Count - 1];
-            heap.RemoveAt(heap.Count - 1);
-
-            while (true)
-            {
-                if (last * 2 + 1 > heap.Count - 1) break;
-
-                int max = 0;
-
-                if (last * 2 + 1 == heap.Count - 1)
-                    max = 1;
-                else
-                    max = Math.Max(heap[last * 2 + 1], heap[last * 2 + 2]) == heap[last * 2 + 1] ? 1 : 2;
-
-                if (!(heap[last] < heap[last * 2 + max])) break;
-
-                int n = heap[last * 2 + max];
-                heap[last * 2 + max] = heap[last];
-                heap[last] = n;
-                last = last * 2 + max;
-            }
-
-            return ret;
+            
         }
     }
 }

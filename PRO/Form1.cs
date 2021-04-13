@@ -31,7 +31,7 @@ namespace PRO
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Output.AppendText(Algorithms.HeapSort() + Environment.NewLine);
+            Output.AppendText(Algorithms.MontyHall(Input.Text) + Environment.NewLine);
         }
     }
 }
